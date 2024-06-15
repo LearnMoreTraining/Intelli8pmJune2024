@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import pageobjects.AmazonHomePage;
 import pageobjects.AmazonSearchResultPage;
+import pageobjects.LearnMoreAlertPage;
 import pageobjects.LearnMoreLoginPage;
 
 public class PageObjectManager {
@@ -26,5 +27,10 @@ public class PageObjectManager {
     public LearnMoreLoginPage getLearnMoreLoginPage(){
         LearnMoreLoginPage learnMoreLoginPage = new LearnMoreLoginPage(driver);
         return learnMoreLoginPage;
+    }
+
+    public LearnMoreAlertPage getLearnMoreAlertPage(){
+        LearnMoreAlertPage learnMoreAlertPage = new LearnMoreAlertPage(driver);
+        return learnMoreAlertPage;
     }
 }

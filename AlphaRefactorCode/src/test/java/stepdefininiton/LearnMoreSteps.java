@@ -30,4 +30,23 @@ public class LearnMoreSteps {
 
         Assert.assertEquals("Invalid Credentials.Please Check",  context.pageObjectManager.getLearnMoreLoginPage().getErrorMessage());
     }
+
+    @Given("user switch to alert and get the text")
+    public void userSwitchToAlertAndGetTheText() {
+        context.pageObjectManager.getLearnMoreAlertPage().clickConfirmBox();
+      Assert.assertEquals("Press a Button !",  context.pageObjectManager.getLearnMoreAlertPage().getAlertMessage());
+    }
+
+    @When("user clic on cancel button")
+    public void userClicOnCancelButton() {
+
+        context.pageObjectManager.getLearnMoreAlertPage().clickAlertCancel();
+
+    }
+
+    @Then("user validate the message in UI")
+    public void userValidateTheMessageInUI() {
+
+        Assert.assertEquals("You Pressed Cancel",context.pageObjectManager.getLearnMoreAlertPage().getUiText());
+    }
 }

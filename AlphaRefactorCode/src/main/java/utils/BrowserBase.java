@@ -11,7 +11,7 @@ public class BrowserBase {
 
         if(driver == null) {
             driver = new ChromeDriver();
-            driver.get("https://learnmoreplayground.blogspot.com/p/loginpage.html");
+            driver.get("https://learnmoreplayground.blogspot.com/p/alerts.html");
         }
         return driver;
     }

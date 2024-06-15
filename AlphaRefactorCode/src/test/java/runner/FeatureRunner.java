@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 
         features = {"src/test/resources/featurefile"},
         glue = {"stepdefininiton"},
-        tags = "@lmti01",
+        tags = "@lmti02",
         plugin = {"pretty"}
 
 
