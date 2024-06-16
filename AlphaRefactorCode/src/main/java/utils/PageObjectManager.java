@@ -35,4 +35,9 @@ public class PageObjectManager {
         WikiPage wikiPage = new WikiPage(driver);
         return wikiPage;
     }
+
+    public LearnMoreExplictWaitPage getLearnMoreExplictPage(){
+        LearnMoreExplictWaitPage learnMoreExplictWaitPage= new LearnMoreExplictWaitPage(driver);
+        return learnMoreExplictWaitPage;
+    }
 }
