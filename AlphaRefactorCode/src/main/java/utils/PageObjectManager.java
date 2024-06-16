@@ -1,10 +1,7 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import pageobjects.AmazonHomePage;
-import pageobjects.AmazonSearchResultPage;
-import pageobjects.LearnMoreAlertPage;
-import pageobjects.LearnMoreLoginPage;
+import pageobjects.*;
 
 public class PageObjectManager {
    WebDriver driver;
@@ -32,5 +29,10 @@ public class PageObjectManager {
     public LearnMoreAlertPage getLearnMoreAlertPage(){
         LearnMoreAlertPage learnMoreAlertPage = new LearnMoreAlertPage(driver);
         return learnMoreAlertPage;
+    }
+
+    public WikiPage getWikiPage(){
+        WikiPage wikiPage = new WikiPage(driver);
+        return wikiPage;
     }
 }
