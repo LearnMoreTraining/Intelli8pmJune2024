@@ -11,3 +11,8 @@ Feature:  Learn More Automation
     Given user switch to alert and get the text
     When user clic on cancel button
     Then user validate the message in UI
+
+  @lmti03
+  Scenario: Learn more Aspirants Text validation
+    Given user clicks on change text button
+    Then verify the text

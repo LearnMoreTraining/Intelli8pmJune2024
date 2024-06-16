@@ -49,4 +49,15 @@ public class LearnMoreSteps {
 
         Assert.assertEquals("You Pressed Cancel",context.pageObjectManager.getLearnMoreAlertPage().getUiText());
     }
+
+    @Given("user clicks on change text button")
+    public void userClicksOnChangeTextButton() {
+
+        context.pageObjectManager.getLearnMoreExplictPage().clickChangeTextButton();
+    }
+
+    @Then("verify the text")
+    public void verifyTheText() {
+        Assert.assertEquals("Hello, Learn More Aspirants",context.pageObjectManager.getLearnMoreExplictPage().getChangeTextValue());
+    }
 }
