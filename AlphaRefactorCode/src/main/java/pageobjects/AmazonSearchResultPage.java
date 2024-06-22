@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AmazonSearchResultPage {
@@ -10,7 +11,13 @@ public class AmazonSearchResultPage {
         this.driver = driver;
     }
 
-    public void clickAllPrimeCheckBox(){
 
+    public void selectProduct(int resultIndex){
+
+        driver.findElement(By.xpath("//div[@data-cel-widget='search_result_"+resultIndex+"']")).click();
+    }
+
+    public void selectToCity(String cityName){
+        driver.findElement(By.xpath("//a[@value='"+cityName+"']")).click();
     }
 }

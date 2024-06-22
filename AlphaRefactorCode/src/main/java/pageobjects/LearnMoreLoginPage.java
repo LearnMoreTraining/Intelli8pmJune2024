@@ -2,6 +2,7 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.DecoderUtility;
 import utils.ReadPropertyFile;
 
 import java.util.Iterator;
@@ -19,7 +20,7 @@ public class LearnMoreLoginPage {
     }
 
     public void enterPassword(){
-        driver.findElement(By.id("password")).sendKeys(ReadPropertyFile.getValueFromPropertyFile("password"));
+        driver.findElement(By.id("password")).sendKeys(DecoderUtility.decode64(ReadPropertyFile.getValueFromPropertyFile("password")));
     }
 
     public void clickLogin(){

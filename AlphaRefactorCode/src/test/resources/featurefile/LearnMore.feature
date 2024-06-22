@@ -18,7 +18,15 @@ Feature:  Learn More Automation
     Then verify the text
 
   @lmti04
+    #before
   Scenario: window handling
+    #beforestep
     Given user enter the user name and password
+    #afterstep
+     #beforestep
     When user clicks on login button
+     #afterstep
+     #beforestep
     Then verfiy the child window
+   #afterstep
+  #after
