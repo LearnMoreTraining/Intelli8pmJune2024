@@ -25,10 +25,12 @@ public class AmazonSteps {
 
     @When("enter the product name")
     public void enterTheProductName() {
+        context.pageObjectManager.getAmazonHomePage().enterProductName("xyz",0,1);
     }
 
     @Then("validate the page navigation")
     public void validateThePageNavigation() {
 
+        context.pageObjectManager.getAmazonSearchResultPage().selectProduct(5);
     }
 }

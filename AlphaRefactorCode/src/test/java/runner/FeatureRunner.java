@@ -9,10 +9,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         features = {"src/test/resources/featurefile"},
-        glue = {"stepdefininiton"},
+        glue = {"stepdefininiton","hooks"},
         tags = "@lmti04",
-        plugin = {"pretty"}
-
+        plugin = {"pretty",
+                  "html:target/testoutput/Report.html",
+                  "json:target/testoutput/Report.json",
+                  "junit:target/testoutput/Report.xml"}
 
 )
 

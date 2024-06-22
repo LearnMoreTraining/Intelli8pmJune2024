@@ -17,14 +17,11 @@ public class BrowserBase {
 
     public WebDriver driver; //null
 
-    public WebDriver getWebDriver() throws IOException {
+    public WebDriver getWebDriver()  {
 
         if(driver == null) {
-            File f = new File("src/main/resources/configuration/frameworkconfiguration.properties");
-            FileInputStream fis = new FileInputStream(f);
-            Properties properties = new Properties();
-            properties.load(fis);
-            switch (properties.getProperty("browser").toLowerCase()){
+
+            switch (ReadPropertyFile.getValueFromPropertyFile("browser").toLowerCase()){
                 case "edge":
                     driver = new EdgeDriver();
                     break;
@@ -38,7 +35,7 @@ public class BrowserBase {
                     throw new InvalidArgumentException("enter valid input");
             }
 
-            driver.get(properties.getProperty("testenvironment"));
+            driver.get(ReadPropertyFile.getValueFromPropertyFile("testenvironment"));
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
