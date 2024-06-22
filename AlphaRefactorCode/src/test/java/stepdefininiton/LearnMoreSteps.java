@@ -60,4 +60,10 @@ public class LearnMoreSteps {
     public void verifyTheText() {
         Assert.assertEquals("Hello, Learn More Aspirants",context.pageObjectManager.getLearnMoreExplictPage().getChangeTextValue());
     }
+
+    @Then("verfiy the child window")
+    public void verfiyTheChildWindow() {
+
+        Assert.assertEquals("Event Manage",context.pageObjectManager.getLearnMoreLoginPage().getChildWindowTitle());
+    }
 }

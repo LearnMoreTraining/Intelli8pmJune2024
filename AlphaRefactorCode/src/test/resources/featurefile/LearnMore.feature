@@ -16,3 +16,9 @@ Feature:  Learn More Automation
   Scenario: Learn more Aspirants Text validation
     Given user clicks on change text button
     Then verify the text
+
+  @lmti04
+  Scenario: window handling
+    Given user enter the user name and password
+    When user clicks on login button
+    Then verfiy the child window

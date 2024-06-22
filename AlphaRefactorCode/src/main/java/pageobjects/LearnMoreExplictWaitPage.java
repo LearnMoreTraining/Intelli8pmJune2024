@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeoutException;
 
 public class LearnMoreExplictWaitPage {
 
@@ -21,12 +22,22 @@ public class LearnMoreExplictWaitPage {
 
     public String getChangeTextValue(){
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.pollingEvery(Duration.ofSeconds(5));
-        wait.ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h3[text()='Hello, Learn More Aspirants']")));
+        String error ;
 
-       return driver.findElement(By.xpath("//h3[text()='Hello, Learn More Aspirants']")).getText();
+        try{
+          error =  driver.findElement(By.xpath("//h3[text()='Hello, Learn More Aspirants']")).getText();
+        }
+        catch (NoSuchElementException e){
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.pollingEvery(Duration.ofSeconds(5));
+            wait.ignoring(NoSuchElementException.class);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h3[text()='Hello, Learn More Aspirants']")));
+          error=  driver.findElement(By.xpath("//h3[text()='Hello, Learn More Aspirants']")).getText();
+        }
+
+
+
+       return error;
     }
 
 }
