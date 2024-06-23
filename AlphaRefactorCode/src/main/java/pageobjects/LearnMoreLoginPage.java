@@ -1,7 +1,9 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utils.DecoderUtility;
 import utils.ReadPropertyFile;
 
@@ -20,16 +22,25 @@ public class LearnMoreLoginPage {
     }
 
     public void enterPassword(){
-        driver.findElement(By.id("password")).sendKeys(DecoderUtility.decode64(ReadPropertyFile.getValueFromPropertyFile("password")));
+       WebElement element= driver.findElement(By.id("password"));
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].setAttribute('value','learnmore@123')",element);
     }
 
     public void clickLogin(){
 
-        driver.findElement(By.xpath("//button[text()='Login']")).click();
+      WebElement element = driver.findElement(By.xpath("//button[text()='Login']"));
+
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+      //  jse.executeScript("arguments[0].scrollIntoView();",element);
+        jse.executeScript("arguments[0].click()",element);
+
     }
 
     public String getErrorMessage(){
 
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,600)","");
        String error = driver.findElement(By.id("errorMessage")).getText();
        return error;
     }
